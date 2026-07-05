@@ -6,11 +6,9 @@ const Footer = () => {
 		<footer className="px-6 md:px-16 lg:px-24 xl:px-32 pt-8 w-full text-gray-500">
 			<div className="flex flex-col md:flex-row justify-between w-full gap-10 border-b border-gray-500/30 pb-6">
 				<div className="md:max-w-96">
-					<img src={assets.logo} alt="logo" />
+					<img src={assets.logo} alt="logo" className="w-40"/>
 					<p className="mt-6 text-sm">
-						Lorem Ipsum is simply dummy text of the printing and typesetting
-						industry. Lorem Ipsum has been the industry's standard dummy text
-						ever since the 1500s.
+						AI Nest empowers creators and businesses with intelligent tools for content creation, image generation, photo editing, and productivity—all in one platform.
 					</p>
 				</div>
 				<div className="flex-1 flex items-start md:justify-end gap-20">
@@ -55,7 +53,7 @@ const Footer = () => {
 				</div>
 			</div>
 			<p className="pt-4 text-center text-xs md:text-sm pb-5">
-				Copyright 2026 © AI_Nest . All
+				Copyright 2026 © AI Nest . All
 				Right Reserved.
 			</p>
 		</footer>

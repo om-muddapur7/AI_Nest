@@ -1,4 +1,4 @@
-import logo from "./logo.svg";
+import logo from "./logo3.png";
 import gradientBackground from "./gradientBackground.png";
 import user_group from "./user_group.png";
 import star_icon from "./star_icon.svg";
@@ -9,6 +9,15 @@ import { SquarePen, Hash, Image, Eraser, Scissors, FileText } from 'lucide-react
 import ai_gen_img_1 from "./ai_gen_img_1.png";
 import ai_gen_img_2 from "./ai_gen_img_2.png";
 import ai_gen_img_3 from "./ai_gen_img_3.png";
+import {
+  FilePenLine,
+  Lightbulb,
+  Sparkles,
+  ImagePlus,
+  ScanText,
+  WandSparkles,
+  FileSearch,
+} from "lucide-react";
 
 export const assets = {
     logo,
@@ -21,49 +30,49 @@ export const assets = {
 };
 
 export const AiToolsData = [
-    {
-        title: 'AI Article Writer',
-        description: 'Generate high-quality, engaging articles on any topic with our AI writing technology.',
-        Icon: SquarePen,
-        bg: { from: '#3588F2', to: '#0BB0D7' },
-        path: '/ai/write-article'
-    },
-    {
-        title: 'Blog Title Generator',
-        description: 'Find the perfect, catchy title for your blog posts with our AI-powered generator.',
-        Icon: Hash,
-        bg: { from: '#B153EA', to: '#E549A3' },
-        path: '/ai/blog-titles'
-    },
-    {
-        title: 'AI Image Generation',
-        description: 'Create stunning visuals with our AI image generation tool, Experience the power of AI ',
-        Icon: Image,
-        bg: { from: '#20C363', to: '#11B97E' },
-        path: '/ai/generate-images'
-    },
-    {
-        title: 'Background Removal',
-        description: 'Effortlessly remove backgrounds from your images with our AI-driven tool.',
-        Icon: Eraser,
-        bg: { from: '#F76C1C', to: '#F04A3C' },
-        path: '/ai/remove-background'
-    },
-    {
-        title: 'Object Removal',
-        description: 'Remove unwanted objects from your images seamlessly with our AI object removal tool.',
-        Icon: Scissors,
-        bg: { from: '#5C6AF1', to: '#427DF5' },
-        path: '/ai/remove-object'
-    },
-    {
-        title: 'Resume Reviewer',
-        description: 'Get your resume reviewed by AI to improve your chances of landing your dream job.',
-        Icon: FileText,
-        bg: { from: '#12B7AC', to: '#08B6CE' },
-        path: '/ai/review-resume'
-    }
-]
+  {
+    title: "AI Article Writer",
+    Icon: FilePenLine,
+    description: "Generate well-structured, engaging, and SEO-friendly articles on any topic in seconds.",
+    bg: { from: "#4F46E5", to: "#3B82F6" },
+    path: "/ai/write-article",
+  },
+  {
+    title: "Blog Title Generator",
+    Icon: Lightbulb,
+    description: "Create catchy, click-worthy blog titles that capture attention and drive more readers.",
+    bg: { from: "#9333EA", to: "#EC4899" },
+    path: "/ai/blog-titles",
+  },
+  {
+    title: "AI Image Generator",
+    Icon: Sparkles,
+    description: "Transform your ideas into stunning, high-quality images with the power of AI.",
+    bg: { from: "#10B981", to: "#06B6D4" },
+    path: "/ai/generate-images",
+  },
+  {
+    title: "Background Remover",
+    Icon: ImagePlus,
+    description: "Remove image backgrounds instantly with AI for clean, professional-quality results.",
+    bg: { from: "#F97316", to: "#EF4444" },
+    path: "/ai/remove-background",
+  },
+  {
+    title: "Object Remover",
+    Icon: WandSparkles,
+    description: "Erase unwanted objects, people, or distractions from your images with precision.",
+    bg: { from: "#6366F1", to: "#3B82F6" },
+    path: "/ai/remove-object",
+  },
+  {
+    title: "AI Resume Reviewer",
+    Icon: FileSearch,
+    description: "Receive AI-powered feedback and actionable suggestions to strengthen your resume.",
+    bg: { from: "#14B8A6", to: "#0EA5E9" },
+    path: "/ai/review-resume",
+  },
+];
 
 export const dummyTestimonialData = [
     {
