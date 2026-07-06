@@ -76,12 +76,12 @@ const Sidebar = ({ sideBar, setSideBar }) => {
 							<Show
 								when={{ plan: "premium" }}
 								fallback={
-									<p>
+									<span>
 										Free
-									</p>
+									</span>
 								}
 							>
-								<h1>Premium</h1>
+								<span>Premium</span>
 							</Show>
 						</p>
 					</div>
