@@ -16,16 +16,36 @@ import { useEffect } from "react";
 function App() {
 	const { getToken } = useAuth();
 
+	const test = async () => {
+		const token = await getToken();
+
+		const res = await fetch("http://localhost:3000/api/ai/generate-article", {
+			method: "POST",
+			headers: {
+				Authorization: `Bearer ${token}`,
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				prompt: "Hello",
+				length: 100,
+			}),
+		});
+
+		console.log(await res.json());
+	};
+
 	useEffect(() => {
 		getToken().then((token) => {
 			console.log("TOKEN:", token);
 			console.log("Length:", token.length);
-			navigator.clipboard.writeText(token); // copies just this one token
 		});
 	}, []);
 
 	return (
 		<div>
+		<div>
+      <button onClick={test}>Test Backend</button>
+    </div>
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/ai" element={<Layout />}>

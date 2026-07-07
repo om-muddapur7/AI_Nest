@@ -14,6 +14,12 @@ export const generateArticle = async (req, res) => {
 		const plan = req.plan;
 		const free_usage = req.free_usage;
 
+		console.log("1. Controller reached");
+		console.log("2. User:", userId);
+		console.log("3. Body:", { prompt, length });
+		console.log("4. Plan:", req.plan);
+		console.log("5. Free usage:", req.free_usage);
+
 		if (plan !== "premium" && free_usage >= 10) {
 			return res.json({
 				success: false,
@@ -22,7 +28,7 @@ export const generateArticle = async (req, res) => {
 		}
 
 		const response = await AI.chat.completions.create({
-			model: "gemini-3.5-flash",
+			model: "gemini-2.5-flash",
 			reasoning_effort: "low",
 			messages: [
 				{
@@ -36,7 +42,7 @@ export const generateArticle = async (req, res) => {
 
 		const content = response.choices[0].message.content;
 
-		await sql`INSERT INTO creations(userId, prompt, content, type) VALUES(${userId}, ${prompt}, ${content}, 'article')`;
+		await sql`INSERT INTO creations(user_id, prompt, content, type) VALUES(${userId}, ${prompt}, ${content}, 'article')`;
 
 		if (plan !== "premium") {
 			await clerkClient.users.updateUserMetadata(userId, {

@@ -2,10 +2,6 @@ import { clerkClient } from "@clerk/express";
 
 export const auth = async (req, res, next) => {
 	try {
-		console.log("Headers:", req.headers);
-		console.log("Authorization:", req.headers.authorization);
-		console.log("Auth:", req.auth());
-
 		const { userId, has } = req.auth();
 
 		if (!userId) {
@@ -17,13 +13,12 @@ export const auth = async (req, res, next) => {
 
 		const hasPremiumPlan = await has({ plan: "premium" });
 
-		const client = await clerkClient();
-		const user = await client.users.getUser(userId);
+		const user = await clerkClient.users.getUser(userId);
 
 		if (!hasPremiumPlan && user.privateMetadata.free_usage) {
 			req.free_usage = user.privateMetadata.free_usage;
 		} else {
-			await client.users.updateUserMetadata(userId, {
+			await clerkClient.users.updateUserMetadata(userId, {
 				privateMetadata: {
 					free_usage: 0,
 				},
