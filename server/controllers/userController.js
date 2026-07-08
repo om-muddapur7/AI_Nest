@@ -19,14 +19,14 @@ export const getUserCreations = async () => {
 	}
 };
 
-export const getPublishedCreations = async () => {
+export const getPublishedCreations = async (req, res) => {
 	try {
 		const creations =
 			await sql`SELECT * FROM creations WHERE publish = true ORDER BY created_at DESC`;
 
 		res.json({
 			success: true,
-			message: creations,
+			creations,
 		});
 	} catch (error) {
 		res.json({
@@ -36,7 +36,7 @@ export const getPublishedCreations = async () => {
 	}
 };
 
-export const toggleLikeCreations = async () => {
+export const toggleLikeCreations = async (req, res) => {
 	try {
 		const { userId } = req.auth();
 		const { id } = req.body;
@@ -51,7 +51,7 @@ export const toggleLikeCreations = async () => {
 		}
 
         const currentLikes = creation.likes;
-        const userIdStr = userId.toSring();
+        const userIdStr = userId.toString();
         let updateLikes;
         let message;
 

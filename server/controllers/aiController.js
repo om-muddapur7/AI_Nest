@@ -5,6 +5,7 @@ import axios from "axios"
 import {v2 as cloudinary} from "cloudinary" ;
 import fs from "fs";
 import pdf from "pdf-parse-new";
+import path from "path";
 
 const AI = new OpenAI({
 	apiKey: process.env.GEMINI_API_KEY,
@@ -92,7 +93,7 @@ export const generateBlogTitle = async (req, res) => {
 				},
 			],
 			temperature: 0.7,
-			max_tokens: 100,
+			max_tokens: 1000,
 		});
 
 		const content = response.choices[0].message.content;
@@ -161,7 +162,7 @@ export const generateImage = async (req, res) => {
 export const removeImageBackground = async (req, res) => {
 	try {
 		const { userId } = req.auth();
-		const { image } = req.file;
+		const  image  = req.file;
 		const plan = req.plan;
 
 		if (plan !== "premium") {
@@ -196,7 +197,7 @@ export const removeImageBackground = async (req, res) => {
 export const removeImageObject = async (req, res) => {
 	try {
 		const { userId } = req.auth();
-		const { image } = req.file;
+		const  image  = req.file;
 		const {object} = req.body;
 		const plan = req.plan;
 
@@ -211,9 +212,9 @@ export const removeImageObject = async (req, res) => {
 
 		const imageUrl =  cloudinary.url(public_id, {
 			transformation: [{
-				effect: `gen_remove: ${object} `
+				effect: `gen_remove:prompt_${encodeURIComponent(object.trim())}`
 			}],
-			resource_type: 'image'
+			resource_type:'image'
 		});
 
 		await sql`INSERT INTO creations(user_id, prompt, content, type) VALUES(${userId}, ${`Remove ${object} from the image`}, ${imageUrl}, 'image')`;
@@ -264,7 +265,7 @@ export const resumeReview = async (req, res) => {
 				},
 			],
 			temperature: 0.7,
-			max_tokens: 1000,
+			max_tokens: 2000,
 		});
 
 		const content = response.choices[0].message.content;
