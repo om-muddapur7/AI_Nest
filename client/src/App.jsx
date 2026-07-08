@@ -19,15 +19,15 @@ function App() {
 	const test = async () => {
 		const token = await getToken();
 
-		const res = await fetch("http://localhost:3000/api/ai/generate-article", {
+		const res = await fetch("http://localhost:3000/api/ai/generate-image", {
 			method: "POST",
 			headers: {
 				Authorization: `Bearer ${token}`,
 				"Content-Type": "application/json",
 			},
 			body: JSON.stringify({
-				prompt: "Hello",
-				length: 100,
+				prompt: "cat playing football",
+				publish: false,
 			}),
 		});
 
