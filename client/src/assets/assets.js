@@ -35,7 +35,7 @@ export const AiToolsData = [
     Icon: FilePenLine,
     description: "Generate well-structured, engaging, and SEO-friendly articles on any topic in seconds.",
     bg: { from: "#4F46E5", to: "#3B82F6" },
-    path: "/ai/write-article",
+    path: "/ai/write-articles",
   },
   {
     title: "Blog Title Generator",

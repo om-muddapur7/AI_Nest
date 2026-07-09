@@ -17,37 +17,8 @@ import { Toaster } from "react-hot-toast";
 function App() {
 	const { getToken } = useAuth();
 
-	const test = async () => {
-		const token = await getToken();
-
-		const res = await fetch("http://localhost:3000/api/ai/generate-image", {
-			method: "POST",
-			headers: {
-				Authorization: `Bearer ${token}`,
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({
-				prompt: "cat playing football",
-				publish: false,
-			}),
-		});
-
-		console.log(await res.json());
-	};
-
-	useEffect(() => {
-		getToken().then((token) => {
-			console.log("TOKEN:", token);
-			console.log("Length:", token.length);
-		});
-	}, []);
-
 	return (
 		<div>
-			<div>
-				<button onClick={test}>Test Backend</button>
-			</div>
-			
 			<Toaster />
 			<Routes>
 				<Route path="/" element={<Home />} />

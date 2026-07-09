@@ -64,7 +64,7 @@ const ReviewResume = () => {
 				/>
 
 				<p className="text-xs text-gray-500 font-light mt-1">
-					Supports PDFresume file format only
+					Supports PDF resume file format only
 				</p>
 
 				<button

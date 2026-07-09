@@ -3,12 +3,42 @@ import { dummyCreationData } from "../assets/assets";
 import { Gem, Sparkles } from "lucide-react";
 import { useClerk, useUser, Show } from "@clerk/react";
 import CreationItem from "../components/CreationItem";
+import axios from "axios";
+import { useAuth } from "@clerk/react";
+import toast from "react-hot-toast";
+
+axios.defaults.baseURL = import.meta.env.VITE_BASE_URL;
 
 const Dashboard = () => {
 	const [creations, setCreations] = useState([]);
 
+	const [loading, setLoading] = useState(false);
+
+	const { getToken } = useAuth();
+
 	const getDashboarddata = async () => {
-		setCreations(dummyCreationData);
+		try {
+			setLoading(true);
+
+			const { data } = await axios.get(
+				"/api/user/get-user-creations",
+
+				{
+					headers: {
+						Authorization: `Bearer ${await getToken()}`,
+					},
+				},
+			);
+
+			if (data.success) {
+				setCreations(data.creations);
+			} else {
+				toast.error(data.message);
+			}
+		} catch (error) {
+			toast.error(error.message);
+		}
+		setLoading(false);
 	};
 
 	useEffect(() => {
@@ -33,8 +63,8 @@ const Dashboard = () => {
 					<div className="text-slate-600">
 						<p className="text-sm">Active Plan</p>
 						<h2 className="text-xl font-semibold">
-							<Show when={{ plan: "premium" }} fallback={<p>Free</p>}>
-								<h1>Premium</h1>
+							<Show when={{ plan: "premium" }} fallback={<span>Free</span>}>
+								<span>Premium</span>
 							</Show>
 						</h2>
 					</div>
@@ -43,16 +73,20 @@ const Dashboard = () => {
 						<Gem className="w-5 text-white" />
 					</div>
 				</div>
-
 			</div>
 
-      <div className="space-y-3">
-        <p className="mt-6 mb-4">Recent Creations</p>
-        {
-          creations.map((item) => <CreationItem key={item.id} item={item} />)
-        }
-      </div>
-
+			{loading ? (
+				<div className="flex justify-center items-center h-3/4">
+					<span className="w-10 h-10 my-1 rounded-full border-3 border-primary border-t-transparent animate-spin"></span>
+				</div>
+			) : (
+				<div className="space-y-3">
+					<p className="mt-6 mb-4">Recent Creations</p>
+					{creations.map((item) => (
+						<CreationItem key={item.id} item={item} />
+					))}
+				</div>
+			)}
 		</div>
 	);
 };

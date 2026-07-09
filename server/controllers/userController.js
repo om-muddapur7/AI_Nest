@@ -1,6 +1,6 @@
 import sql from "../configs/db.js";
 
-export const getUserCreations = async () => {
+export const getUserCreations = async (req, res) => {
 	try {
 		const { userId } = req.auth();
 
@@ -9,7 +9,7 @@ export const getUserCreations = async () => {
 
 		res.json({
 			success: true,
-			message: creations,
+			creations,
 		});
 	} catch (error) {
 		res.json({
