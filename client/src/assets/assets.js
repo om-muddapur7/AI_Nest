@@ -34,42 +34,42 @@ export const AiToolsData = [
     title: "AI Article Writer",
     Icon: FilePenLine,
     description: "Generate well-structured, engaging, and SEO-friendly articles on any topic in seconds.",
-    bg: { from: "#4F46E5", to: "#3B82F6" },
+    bg: "#2563EB", // Royal Blue
     path: "/ai/write-articles",
   },
   {
     title: "Blog Title Generator",
     Icon: Lightbulb,
     description: "Create catchy, click-worthy blog titles that capture attention and drive more readers.",
-    bg: { from: "#9333EA", to: "#EC4899" },
+    bg: "#F59E0B", // Amber
     path: "/ai/blog-titles",
   },
   {
     title: "AI Image Generator",
     Icon: Sparkles,
     description: "Transform your ideas into stunning, high-quality images with the power of AI.",
-    bg: { from: "#10B981", to: "#06B6D4" },
+    bg: "#06B6D4", // Cyan
     path: "/ai/generate-images",
   },
   {
     title: "Background Remover",
     Icon: ImagePlus,
     description: "Remove image backgrounds instantly with AI for clean, professional-quality results.",
-    bg: { from: "#F97316", to: "#EF4444" },
+    bg: "#10B981", // Emerald
     path: "/ai/remove-background",
   },
   {
     title: "Object Remover",
     Icon: WandSparkles,
     description: "Erase unwanted objects, people, or distractions from your images with precision.",
-    bg: { from: "#6366F1", to: "#3B82F6" },
+    bg: "#8B5CF6", // Violet
     path: "/ai/remove-object",
   },
   {
     title: "AI Resume Reviewer",
     Icon: FileSearch,
     description: "Receive AI-powered feedback and actionable suggestions to strengthen your resume.",
-    bg: { from: "#14B8A6", to: "#0EA5E9" },
+    bg: "#EF4444", // Red
     path: "/ai/review-resume",
   },
 ];

@@ -88,7 +88,7 @@ const RemoveObject = () => {
 
 				<button
 					disabled={loading}
-					className="w-full flex justify-center items-center gap-2 bg-gradient-to-r from-[#417df6] to-[#8e37eb] text-white px-4 py-2 mt-6 text-sm rounded-lg cursor-pointer"
+					className="w-full flex justify-center items-center gap-2 bg-[#417df6] text-white px-4 py-2 mt-6 text-sm rounded-lg cursor-pointer"
 				>
 					{loading ? (
 						<span className="w-4 h-4 my-1 rounded-full border-2 border-t-transparent animate-spin"></span>

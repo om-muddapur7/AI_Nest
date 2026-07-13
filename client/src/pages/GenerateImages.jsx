@@ -113,7 +113,7 @@ const GenerateImages = () => {
 
 				<button
 					disabled={loading}
-					className="w-full flex justify-center items-center gap-2 bg-gradient-to-r from-[#00ad25] to-[#04ff50] text-white px-4 py-2 mt-6 text-sm rounded-lg cursor-pointer"
+					className="w-full flex justify-center items-center gap-2 bg-[#00ad25] text-white px-4 py-2 mt-6 text-sm rounded-lg cursor-pointer"
 				>
 					{loading ? (
 						<span className="w-4 h-4 my-1 rounded-full border-2 border-t-transparent animate-spin"></span>

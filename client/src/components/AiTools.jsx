@@ -11,7 +11,7 @@ const AiTools = () => {
 		<div className="px-4 sm:px-20 xl:px-32 my-24">
 			<div className="text-center">
 				<h2 className="text-slate-700 text-[42px] font-semibold">
-					Powerful AI tools
+					Explore a range of AI tools
 				</h2>
 				<p className="text-gray-500 max-w-2xl mx-auto">
 					Discover a complete suite of AI-powered tools to create engaging
@@ -31,7 +31,7 @@ const AiTools = () => {
 						<tool.Icon
 							className="w-12 h-12 p-3 text-white rounded-xl"
 							style={{
-								background: `linear-gradient(to bottom, ${tool.bg.from}, ${tool.bg.to})`,
+								background: `${tool.bg}`,
 							}}
 						/>
 

@@ -54,7 +54,7 @@ const Dashboard = () => {
 						<h2 className="text-xl font-semibold">{creations.length}</h2>
 					</div>
 
-					<div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#3588f2] to-[#0bb0d7] text-white flex justify-center items-center">
+					<div className="w-10 h-10 rounded-lg bg-[#2563EB] text-white flex justify-center items-center">
 						<Sparkles className="w-5 text-white" />
 					</div>
 				</div>
@@ -69,7 +69,7 @@ const Dashboard = () => {
 						</h2>
 					</div>
 
-					<div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#ff61c5] to-[#9e53ee] text-white flex justify-center items-center">
+					<div className="w-10 h-10 rounded-lg bg-[#f9039fdf] text-white flex justify-center items-center">
 						<Gem className="w-5 text-white" />
 					</div>
 				</div>
